@@ -1,21 +1,14 @@
 import discord
-from discord.ext import commands, tasks
-import os
+from discord.ext.commands import Bot
+from discord.ext import commands
 import asyncio
 
-prefix='!'
-n=0
+bot = commands.Bot(command_prefix='!')
 
-intents=discord.Intents.default()
-intents = discord.Intents(messages=True, guilds=True)
-
-
-
-
-client = commands.Bot(command_prefix=prefix, intents=intents)
-@client.event
+@bot.event
 async def on_ready():
-    print('Bot is online')
+    print ("Bot Online!")
+    print (bot.user.name)
     await client.change_presence(activity=discord.Game('Security'))
 
 @client.command()
