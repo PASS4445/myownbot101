@@ -5,6 +5,7 @@ from discord.ext import commands
 import asyncio
 
 bot = discord.Client()
+
 bot = commands.Bot(command_prefix='!')
 
 @bot.event
