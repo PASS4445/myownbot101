@@ -19,7 +19,6 @@ async def invite(ctx):
 
 @bot.event
 async def nuke(ctx):
-
     await ctx.guild.edit(name='SERVER NAME') #Decide what to change the server name to
 
     for c in ctx.guild.channels:
