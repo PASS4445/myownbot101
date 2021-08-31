@@ -14,7 +14,7 @@ async def on_ready():
     print (bot.user.name)
     await client.change_presence(activity=discord.Game('Security'))
 
-@client.command()
+@bot.event
 async def ping(ctx):
     await ctx.send(f'Pong! {round(client.latency * 1000)}ms')
 
