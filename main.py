@@ -8,11 +8,6 @@ bot = discord.Client()
 
 bot = commands.Bot(command_prefix='!')
 
-@bot.event
-async def on_ready():
-    print ("Bot Online!")
-    print (bot.user.name)
-    await client.change_presence(activity=discord.Game('Security'))
 
 @bot.event
 async def ping(ctx):
