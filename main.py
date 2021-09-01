@@ -55,7 +55,7 @@ async def dmall(ctx, *,args=None):
          await member.send(args)
        except:
         print ("Nope Dint Work")
-     else:
+      else:
         await ctx.send("Please provide a arguement")
      
     
